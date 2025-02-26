@@ -1,12 +1,17 @@
+using System.Transactions;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class Breakable : MonoBehaviour
 {
     [SerializeField] private float toughness = 0.01f;
     [SerializeField] private Rigidbody rb;
+
+    [Tooltip("If null, breaks by separating children")]
+    [SerializeField] private GameObject brokenVersion;
 
     void Start()
     {
@@ -26,14 +31,21 @@ public class Breakable : MonoBehaviour
 
     void Break()
     {
-        foreach(Transform child in transform)
+        if(null != brokenVersion)
         {
-            if(null == child.GetComponent<Rigidbody>())
-            {
-                child.AddComponent<Rigidbody>();
-            }
-            child.parent = null;
+            Instantiate(brokenVersion, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
-        Destroy(this);
+        else
+        {
+            while(transform.childCount > 0){
+                Transform child = transform.GetChild(0);
+                if(null == child.GetComponent<Rigidbody>())
+                {
+                    child.AddComponent<Rigidbody>();
+                }
+                child.parent = null;
+            }
+        }
     }
 }
