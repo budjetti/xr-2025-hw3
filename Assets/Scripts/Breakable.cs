@@ -8,6 +8,8 @@ using UnityEngine.SocialPlatforms;
 
 public class Breakable : MonoBehaviour
 {
+    [SerializeField] private int price;
+    [SerializeField] private GameObject pricePrefab;
     [SerializeField] private float toughness = 0.01f;
     [SerializeField] private Rigidbody rb;
 
@@ -35,6 +37,9 @@ public class Breakable : MonoBehaviour
 
     void Break()
     {
+        GameObject priceTag = Instantiate(pricePrefab, transform.position, transform.rotation) as GameObject;
+        priceTag.GetComponent<Price>().price = price;
+
         foreach(Component component in removeWhenBroken)
         {
             Destroy(component);

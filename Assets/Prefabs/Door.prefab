@@ -243,6 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb775be95a57835458e47718627dc601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 150
+  pricePrefab: {fileID: 7135385933860698549, guid: 3ecdb0a5429009046b2b50cf6e8d1657,
+    type: 3}
   toughness: 1
   rb: {fileID: 0}
   brokenVersion: {fileID: 4816389397375415344, guid: e021f8591b9ab1e4d88efe934e09ddeb,
