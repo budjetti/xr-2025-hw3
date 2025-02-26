@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor.Animations;
+using UnityEngine.SocialPlatforms;
 
 public class Breakable : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Breakable : MonoBehaviour
 
     [Tooltip("If null, breaks by separating children")]
     [SerializeField] private GameObject brokenVersion;
+
+    [Tooltip("List of components to remove when broken")]
+    [SerializeField] private List<Component> removeWhenBroken;
 
     void Start()
     {
@@ -31,9 +35,15 @@ public class Breakable : MonoBehaviour
 
     void Break()
     {
+        foreach(Component component in removeWhenBroken)
+        {
+            Destroy(component);
+        }
+        
         if(null != brokenVersion)
         {
-            Instantiate(brokenVersion, transform.position, transform.rotation);
+            GameObject broken = Instantiate(brokenVersion, transform.position, transform.rotation) as GameObject;
+            broken.transform.localScale = transform.localScale;
             Destroy(gameObject);
         }
         else
