@@ -18,6 +18,7 @@ public class Breakable : MonoBehaviour
 
     [Tooltip("List of components to remove when broken")]
     [SerializeField] private List<Component> removeWhenBroken;
+    [SerializeField] private bool startsGame;
 
     void Start()
     {
@@ -37,8 +38,16 @@ public class Breakable : MonoBehaviour
 
     void Break()
     {
-        GameObject priceTag = Instantiate(pricePrefab, transform.position, transform.rotation) as GameObject;
-        priceTag.GetComponent<Price>().price = price;
+        GameManager gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if(startsGame)
+        {
+            gm.RoundStart();
+        }
+        if(gm.AddScore(price))
+        {
+            GameObject priceTag = Instantiate(pricePrefab, transform.position, transform.rotation) as GameObject;
+            priceTag.GetComponent<Price>().price = price;
+        }
 
         foreach(Component component in removeWhenBroken)
         {
