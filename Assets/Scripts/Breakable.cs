@@ -19,9 +19,11 @@ public class Breakable : MonoBehaviour
     [Tooltip("List of components to remove when broken")]
     [SerializeField] private List<Component> removeWhenBroken;
     [SerializeField] private bool startsGame;
+    [SerializeField] private bool broken;
 
     void Start()
     {
+        broken = false;
         if(null == rb)
         {
             rb = GetComponent<Rigidbody>();
@@ -30,6 +32,9 @@ public class Breakable : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if(broken)
+            return;
+
         if(rb.velocity.magnitude > toughness || other.rigidbody.velocity.magnitude > toughness)
         {
             Break();
@@ -38,6 +43,8 @@ public class Breakable : MonoBehaviour
 
     void Break()
     {
+        broken = true;
+
         GameManager gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
         if(startsGame)
         {
