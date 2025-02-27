@@ -653,12 +653,13 @@ MonoBehaviour:
   price: 20
   pricePrefab: {fileID: 7135385933860698549, guid: 3ecdb0a5429009046b2b50cf6e8d1657,
     type: 3}
-  toughness: 0.5
+  toughness: 1
   rb: {fileID: 0}
   brokenVersion: {fileID: 8805139662673597513, guid: f16fd44bd6697a64385bbfd384753db2,
     type: 3}
   removeWhenBroken: []
   startsGame: 0
+  broken: 0
 --- !u!1 &9197971029690491163
 GameObject:
   m_ObjectHideFlags: 0

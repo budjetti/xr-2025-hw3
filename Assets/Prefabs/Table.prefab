@@ -234,7 +234,7 @@ MonoBehaviour:
   price: 200
   pricePrefab: {fileID: 7135385933860698549, guid: 3ecdb0a5429009046b2b50cf6e8d1657,
     type: 3}
-  toughness: 2
+  toughness: 4
   rb: {fileID: 0}
   brokenVersion: {fileID: 2712679659742475387, guid: 88a9be1f8a31ae544b51092b2df898f2,
     type: 3}

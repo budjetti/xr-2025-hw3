@@ -972,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6638933171291215383}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.016821919, z: -0, w: 0.9998585}
+  m_LocalRotation: {x: 0, y: -0.016824123, z: 0, w: 0.9998585}
   m_LocalPosition: {x: -0.016143084, y: 9.277, z: -4.3080873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   price: 40
   pricePrefab: {fileID: 7135385933860698549, guid: 3ecdb0a5429009046b2b50cf6e8d1657,
     type: 3}
-  toughness: 1.5
+  toughness: 2
   rb: {fileID: 0}
   brokenVersion: {fileID: 6638933171291215383, guid: c7c2539efcb4690439336695e434d429,
     type: 3}
