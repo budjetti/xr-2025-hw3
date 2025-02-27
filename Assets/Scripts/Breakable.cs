@@ -1,10 +1,6 @@
-using System.Transactions;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEditor.Animations;
-using UnityEngine.SocialPlatforms;
 
 public class Breakable : MonoBehaviour
 {
